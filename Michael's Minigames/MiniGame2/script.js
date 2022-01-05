@@ -5,6 +5,7 @@ const questionContainerElement = document.getElementById('question-container')
 const questionElement = document.getElementById('question')
 const answerButtonsElement = document.getElementById('answer-buttons')
 const bodyElement = document.getElementsByTagName('body')
+const nextGameButtonElement = document.getElementById('nextgame-btn')
 
 // Declaring questions, shuffled questions, and current question
 let shuffledQuestions, currentQuestionIndex, leftImage, rightImage
@@ -126,6 +127,7 @@ nextButton.addEventListener('click', () => {
 
 // Shuffling and showing questions
 function startGame () {
+    nextGameButtonElement.classList.add('hide')
     startButton.classList.add('hide')
     shuffledQuestions = questions.sort(() => Math.random() - .5)
     currentQuestionIndex = 0 
@@ -202,7 +204,8 @@ function selectAnswer(e) {
     } else {
         startButton.innerHTML = 'Restart'
         startButton.classList.remove('hide')
-        window.location.href = "/William's Minigames/game3.html"
+        nextGameButtonElement.classList.remove('hide')
+        nextGameButtonElement.addEventListener("click", () => window.location.href = "/William's Minigames/game3.html")
     }
     displayCarbonAmountOnce()
     display = false
