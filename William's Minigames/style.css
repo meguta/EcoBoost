@@ -1,0 +1,243 @@
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+
+header{ 
+    height: 35vh;
+}
+
+/* ---------- Hiden class ---------*/ 
+.hide0 {
+    display: none;
+}
+
+/* ---------- Title/ Logo ---------*/ 
+#main_head{ 
+margin: auto;
+text-align: center;
+padding: 3vh;
+font-size: 150px;
+}
+
+
+/* ========================== Main body section for div that contains Play, Locked, Unlocked Button =====================*/ 
+
+
+#sec1{ 
+    height: fit-content;
+    width: fit-content;
+    margin: auto;
+  
+}
+
+
+/* Container for Play, Locked, Unlocked Button  elements */
+.container { 
+    display: grid;
+    font-size: x-large;
+    margin: auto;
+    padding-top: 30px; padding-bottom: 10px;
+    padding-right: 30px; padding-left: 30px;
+    box-shadow: 0 0 20px 2px;
+}
+
+/*To remove all styling from links */
+a{    
+ text-decoration: none; 
+ color: black;
+ display: block;
+ text-align: center; 
+}
+
+.button{ /* Background to be changed  */
+
+    background-color: rgb(214, 233, 226);
+    margin: auto;
+    text-align: center;
+    outline: black;
+    margin-bottom: 30px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    padding-left: 20px; 
+    padding-right: 20px;
+    height: 20%;
+    width: fit-content;
+    height: fit-content;
+    border-radius: 18px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    cursor: pointer;    
+    font-size: 3em;
+    
+}
+
+
+
+.button:active{ 
+    /* Link to next HTML page */
+    box-shadow: rgba(0, 0, 0, 0.151);
+    transform: translateY(2px)
+}
+
+/* ========================== MENU for links =====================*/ 
+#menu_container{ 
+    position: relative;
+    display: inline-block;
+    
+}
+
+#menu_btn{ 
+    font-size: xx-large;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    background-color: rgb(214, 233, 226);
+    border-radius: 15px;
+    padding: 5px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    
+}
+
+#menu_btn:hover { 
+    cursor: pointer;
+}
+
+.dropdown_content{ 
+    display: none;
+    width: 100%;
+    position: absolute;
+    background-color: transparent;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    font-size: xx-large;
+}
+
+.dropdown_content a{ 
+    width: min-content;
+    display:block; 
+    background-color: skyblue;
+    color: royalblue;
+    padding: 5px;
+    text-decoration: none;background-color: rgb(214, 233, 226);
+    border-radius: 15px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+
+}
+
+.dropdown_content a:hover{ 
+    opacity: 50%;
+}
+
+#menu_container:hover .dropdown_content{ 
+    display: block;
+}
+
+
+/* ========================== BODY =====================*/  
+
+body{ 
+    background-image: url("Assets/Jungle.png");
+    background-color: #6abe30;
+/* JUST TO STOP USER SELECTION/ HIGHLIGHTING */
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* =============== Locked section ============*/
+#lockedSection{ 
+    width: fit-content;
+    margin: auto;
+    width: 90vw;
+    height: 95vh;
+}
+
+#lockedContainer { 
+    height: 80%;
+    width: max-content;
+}
+
+.previewBtn { 
+    background-color: rgb(214, 233, 226);
+    margin: auto;
+    margin-bottom: 30px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+    padding-left: 20px; 
+    padding-right: 20px;
+    height: 30%;
+    width: 15%;
+    border-radius: 10px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    cursor: pointer;    
+}
+
+.previewBtn:active{ 
+    /* Link to next HTML page */
+    box-shadow: rgba(0, 0, 0, 0.151);
+    transform: translateY(2px)
+}
+
+#closeLocked { 
+    max-width: 30px;
+    position: relative;
+    float: right;
+    position: relative;right: 11%; top: 12%;  
+}
+
+#closeLocked:hover { 
+    opacity: 50%;
+    box-shadow: 0 0 20px 2px;
+}
+
+/* =============== About section ============*/ 
+#aboutSection{ 
+    width: fit-content;
+    margin: auto;
+    width: 90vw;
+    height: 95vh;
+}
+
+#aboutContainer { 
+    background-image: url("Assets/popupwindow.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 80%;
+    height: 80%;
+    margin: auto; 
+}
+
+#closeAbout { 
+    max-width: 30px;
+    position: relative;
+    float: right;
+    position: relative;right: 11%; top: 12%;  
+}
+
+#closeAbout:hover { 
+    opacity: 50%;
+    box-shadow: 0 0 20px 2px;
+}
+
+#aboutText { 
+    position: relative;left: 12%; top: 20%;
+    width: 75%;
+    font-size: 5vh;
+
+}
+
+
+
+
+html *{ 
+    font-family: 'VT323', monospace;/* Global Font */                                  
+}
+
+/* FOR DEBUGGIN */
+
+
+*{ outline: 2px solid rgba(245, 245, 245, 0.363); } 
+
+
+

@@ -1,0 +1,275 @@
+
+
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+html *{ 
+    font-family: 'VT323', monospace;/* Global Font */  
+}
+
+/* To prevent the user from being to able to highlight */
+*, *::before, *::after { 
+    box-sizing: border-box;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+      
+}
+
+:root{ 
+    /* Very similar to html, but has priority */
+    --hue-nuetral: 200;
+    --hue-wrong: 0; 
+    --hue-correct: 145;
+}
+
+body{ 
+    --hue: var(--hue-nuetral); 
+    
+    background-color: hsl(var(--hue), 50%, 50%) /*hue, saturation, lightness*/
+
+}
+
+/* ------------------- Background change choosing a answer  Correct(Green), Wrong(Red) -----------------*/
+body.correct{ 
+    --hue: var(--hue-correct);
+
+}
+
+body.wrong{ 
+    --hue: var(--hue-wrong);
+}
+
+
+/* ------------------- Header   -----------------*/
+header{ 
+    height: 30vh;
+
+}
+#mainHead{ 
+    
+    box-shadow: 0 0 20px 2px;
+    display: flex;
+    justify-content: center; /* Centering content on the x-axis*/
+    align-items: center; /* Centering content on the y-axis*/
+    margin: auto;
+    font-size:3em;
+    text-align: center
+    
+}
+
+#game3Name{ 
+    background: -webkit-linear-gradient(#0ec96c,white);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    
+}
+
+/* ------------------- Section2  -----------------*/
+
+.section{  /* The section that hold all game items and buttons */
+    font-size: lar;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: hsl(var(--hue), 50%, 50%) /*hue, saturation, lightness*/
+    /* Main container for content */
+    
+}
+
+/* ------------------- Score    -----------------*/
+#scoreContainer{
+    font-size:2em;
+    height: 50vh;
+    padding: 20px;
+    margin-right: 5px;
+    box-shadow: 0 0 20px 2px;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+
+/* ------------------- Questions and options  DIV -----------------*/
+.container{ 
+    height: 50vh;
+    padding: 20px;
+    display: flex;
+    box-shadow: 0 0 20px 2px;
+    max-width: 80%;
+    max-height: 80%;
+}
+
+#question{ 
+    font-size: 2em;
+}
+
+#grid0{ 
+    display: grid;
+    grid-template-rows: repeat(2, auto);
+    gap: 20px;
+}
+
+/* Grid for the option buttons */
+.grid{ 
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: -20px 0;
+}
+
+.name{ 
+    width: 100vw;
+    height: fit-content;
+    font-size: xx-large;
+}
+
+/*---------------------- Start Button and Next Button ----------------------*/
+#startButton { 
+    background-color: rgb(214, 233, 226);
+    margin: auto;
+    text-align: center;
+    outline: black;
+    margin-bottom: 30px;
+    padding: 10px 20px 10px 20px;
+    width: fit-content;
+    border-radius: 18px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    cursor: pointer;  
+    position: relative; top: 120px; 
+    font-family : inherit;
+    font-size: 3em;
+}
+
+#startButton:active{ 
+    /* Link to next HTML page */
+    box-shadow: rgba(0, 0, 0, 0.151);
+    transform: translateY(2px)
+    
+}
+
+#nextButton { 
+    background-color: rgb(214, 233, 226);
+    margin: auto;
+    text-align: center;
+    outline: black;
+    margin: 30px;
+    padding: 10px 20px 10px 20px;
+    width: fit-content;
+    border-radius: 18px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    cursor: pointer;  
+    position: relative; top: 120px; 
+    font-family : inherit;
+    font-size: 3em;
+
+}
+
+#nextButton:active{ 
+    /* Link to next HTML page */
+    box-shadow: rgba(0, 0, 0, 0.151);
+    transform: translateY(2px)
+    
+}
+
+/* ---------------- OPTION BUTTONS FLIP CARDS  ----------*/
+
+.option {
+    position: relative; top: 60px;
+    margin-right: 5px;
+    margin-left: 5px;
+    text-align: center;
+    width: 6em;
+    height: 6em;
+    border-radius: 18px;
+    cursor: pointer;  
+    font-family : inherit;
+    font-size: 2em;
+    perspective: 1000px;
+}
+
+.optionInner { 
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transform-style: preserve-3d;
+    transition: all .6s ease ;
+    border-radius: 18px;
+}
+
+.option:hover .optionInner{ 
+    border-radius: 18px;
+    transform: rotateY(180deg);
+}
+
+.flipFront, .flipBack {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 18px;
+    backface-visibility: hidden;
+  }
+  
+.flipFront {
+    border-radius: 18px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+  }
+  
+.flipBack {
+    border-radius: 18px;
+    background-color: rgb(214, 233, 226);
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+    transform: rotateY(180deg);
+    font-size: 1.2em;
+  }
+
+.option:hover {
+    border-color: black;
+  }
+
+.option:active{ 
+     /* Link to next HTML page */
+     box-shadow: rgba(0, 0, 0, 0.151);
+     transform: translateY(4px)
+}
+.image{ 
+    width: 100%;
+    height: 100%;
+}
+
+.controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+.hide {
+    display: none;
+}
+
+.text  { 
+    text-align: center;
+    margin-top: 40%;
+}
+/* ---------------- Instructions----------*/
+#instructions{ 
+    padding: 10px;
+    font-size: xx-large;
+}
+
+ /* *{ outline: 2px solid rgba(245, 245, 245, 0.363); }  */
+
+
+#gg-menu:hover{ 
+       opacity: 80%;
+       cursor: pointer;
+   }
+
+html{ 
+   
+    font-family: 'Common Pixel', sans-serif; /* Global Font */                                   
+}
+

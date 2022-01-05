@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta lang="en">
+    <title> Home</title>
+    <!-- Linked to first stylesheet -->
+    <link rel="stylesheet" href="William's Minigames/style.css">
+
+    <!-- Font Taken from this website-->
+    <link href="http://fonts.cdnfonts.com/css/common-pixel" rel="stylesheet">
+    <script src="William's Minigames/script.js" defer></script>
+
+</head>
+
+<body>
+    <!-- About,Locked section  => hidden on default -->
+    <div id="aboutSection" class="hide0" >
+        <div id="aboutContainer" >
+            <input type="image" src="William's Minigames/Assets/close.png" id="closeAbout"/>
+            <div id="aboutText"> Welcome to Ecoboost, here you will find a 
+                set of games where you will take on real world environmental problems. 
+                Our mission is to help shape the future generation of people to make better 
+                choices in their daily lives, to start begin to heal the earth.  
+                The controls for each game will be found at the start, you will be awarded
+                points for each game and will recieve a certificate at the end of your journey. 
+            </div>
+        </div>
+    </div>  
+
+    <div id="lockedSection" class="hide0"> 
+        <input type="image" src="William's Minigames/Assets/close.png" id="closeLocked" />
+        <div class="previewBtn"> </div>
+        <div class="previewBtn"> </div>
+        <div class="previewBtn"> </div>
+        <div class="previewBtn"> </div>
+        <div class="previewBtn"> </div>
+        <div class="previewBtn"> </div>        
+    </div>
+    <header id="header">
+        <!-- Contain the Game Name , Logo and Dropdown menu?-->
+        <div id="main_head"> EcoBoost</div>
+ 
+        <div id="menu_container">
+            <div id="menu_btn"> Menu </div>
+            
+            <div class="dropdown_content">
+                <a href="" >Certificate </a>
+                <a href="" >Settings </a>
+                <a href="https://www.edf.org/" >Donate </a>
+            </div>  
+        </div>        
+    </header> 
+    <!-- Main container for Play and Locker button -->
+    <section id="sec1">
+        <div class="container">
+            <a id="playBtn" class="button" href="javascript:void(0);" onclick="linkGame()"> Play</a> 
+            <button id="lockBtn" class="button"> Locked </button>
+            <button id="aboutBtn" class="button"> About </button>
+            <audio src="William's Minigames/Assets/buttonSound1.mp3" id="audio1"></audio>
+            <audio src="William's Minigames/Assets/buttonSound2.mp3" id="audio2"></audio>
+        </div>
+
+    </section>
+
+
+</body>
+
+
+</html>
+
