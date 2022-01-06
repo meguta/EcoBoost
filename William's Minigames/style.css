@@ -175,8 +175,9 @@ body{
 }
 
 #closeLocked { 
-     
+    height: fit-content; 
     float: right;
+    
 }
 
 #closeLocked:hover { 
@@ -219,7 +220,7 @@ body{
     position: relative;left: 12%; top: 20%;
     width: 75%;
     font-size: 5vh;
-    padding: 20px;
+    padding: 25px;
     border-radius: 15px;
     border-color: black;
     border-style: solid;
