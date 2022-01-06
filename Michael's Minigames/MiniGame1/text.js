@@ -27,11 +27,12 @@ function Text() {
         text("[2] Don't collect the red objects!", 100, 175);  
         text("[3] Each correct garbage sorted adds 1 points", 100, 200); 
         text("[4] Top left of the screen shows the required points", 100, 225);  
-        text("[5] Fulfill required points to move onto the next level", 100, 250);    
-        text("[5] Have fun!", 100, 275); 
+        text("[5] Fulfill required points to move onto the next level", 100, 250);   
+        text("[6] Right and left arrow to move", 100, 275);    
+        text("[7] Have fun!", 100, 300); 
 
         textSize(30);
-        text("Press ENTER to start", 150, 325);     
+        text("Press ENTER to start", 150, 350);     
     }
 
     this.level1 = function() {
@@ -83,11 +84,14 @@ function Text() {
         text("First Game: " + scoreNumber1, 230, 180);
         text("Second Game: " + scoreNumber2, 230, 210);
         text("Third Game: " + scoreNumber3, 230, 240);
+        textSize(25);
+        text("Press 'up arrow' to play next game", 110, 350);
+
     }
 
     this.restart = function() {
         textSize(25);
         fill("white");
-        text("Press ENTER to play again", 150, 350);
+        text("Press ENTER to play again", 150, 290);
     }
 }

@@ -147,27 +147,22 @@ body{
 
 /* =============== Locked section ============*/
 #lockedSection{ 
-    width: fit-content;
-    margin: auto;
-    width: 90vw;
-    height: 95vh;
+  height: 90vh;
+  
 }
-
-#lockedContainer { 
-    height: 80%;
-    width: max-content;
+.lockedContainer{ 
+    height: 50%;
+    width: 100%;
+    display: flex;
+    margin: auto;
 }
 
 .previewBtn { 
     background-color: rgb(214, 233, 226);
     margin: auto;
-    margin-bottom: 30px;
-    padding-top: 10px; 
-    padding-bottom: 10px;
-    padding-left: 20px; 
-    padding-right: 20px;
-    height: 30%;
-    width: 15%;
+    margin: 20px;
+    height: 80%;
+    width: 100%;
     border-radius: 10px;
     box-shadow: 0 3px rgba(0, 0, 0, 0.575);
     cursor: pointer;    
@@ -180,10 +175,9 @@ body{
 }
 
 #closeLocked { 
-    max-width: 30px;
-    position: relative;
+    height: fit-content; 
     float: right;
-    position: relative;right: 11%; top: 12%;  
+    
 }
 
 #closeLocked:hover { 
@@ -191,7 +185,7 @@ body{
     box-shadow: 0 0 20px 2px;
 }
 
-/* =============== About section ============*/ 
+/* =============== About section D6E2E9 ============*/ 
 #aboutSection{ 
     width: fit-content;
     margin: auto;
@@ -200,7 +194,8 @@ body{
 }
 
 #aboutContainer { 
-    background-image: url("Assets/popupwindow.png");
+    /*background-image: url("Assets/popupwindow.png");*/
+    
     background-size: contain;
     background-repeat: no-repeat;
     width: 80%;
@@ -221,9 +216,14 @@ body{
 }
 
 #aboutText { 
+    background-color: #D6E2E9;
     position: relative;left: 12%; top: 20%;
     width: 75%;
     font-size: 5vh;
+    padding: 25px;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
 
 }
 
@@ -236,8 +236,7 @@ html *{
 
 /* FOR DEBUGGIN */
 
-
-*{ outline: 2px solid rgba(245, 245, 245, 0.363); } 
+ *{ outline: 2px solid rgba(245, 245, 245, 0.363); } 
 
 
 

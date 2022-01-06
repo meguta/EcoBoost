@@ -1,6 +1,4 @@
 // Backgrounds
-        
-
 let level1Background;
 let level2Background;
 let level3Background;
@@ -299,9 +297,7 @@ function draw() {
         texts.end(scoreNumber3, loseScreen, winScreen, 25);
     } else if (scoreNumber3 >= 25 && goodFallingObjects[2].length == 0) {
         texts.final(scoreNumber1, scoreNumber2, scoreNumber3, startScreen);
-        window.location.href = "/Michael's Minigames/Minigame2/index.html"
         texts.restart();
-
     }
 }
 
@@ -383,6 +379,8 @@ function keyPressed() {
             badFallingObjects[2][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
             , noWasteObjects[Math.floor(Math.random() * noWasteObjects.length)]);
         } 
+    } else if (keyCode == UP_ARROW && goodFallingObjects[0].length == 0 && goodFallingObjects[1].length == 0 && goodFallingObjects[2].length == 0) {
+        window.location.href = "/Michael's Minigames/Minigame2/index.html"
     }
 
     // Moving left and right
