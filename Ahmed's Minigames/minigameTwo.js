@@ -1,5 +1,5 @@
 // https://meguta.loca.lt
-
+GAMEOVER = false
 class HealthBar extends RenderObject {
     constructor (x, y, width, height, maxHealth, scale) {
         super(x, y, width, height, scale)
@@ -297,6 +297,7 @@ class GameController {
 		this.currentWave = 1
 		this.waveDiff = 4
 		this.waveEnemies = 0
+		this.maxWave = 3
 		this.changeWave = false
 
 		this.waveLength = waveLength
@@ -331,9 +332,14 @@ class GameController {
 				}
 			}
 		} else {
-			this.waveTime = this.waveLength
-			this.currentWave+=1
-			this.changeWave = true
+			if (this.currentWave >= this.maxWave) {
+				GAMEOVER = true
+			} else {
+				this.waveTime = this.waveLength
+				this.currentWave+=1
+				this.changeWave = true
+
+			}
 		}
 	}
 

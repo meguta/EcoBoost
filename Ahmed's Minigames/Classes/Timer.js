@@ -3,7 +3,7 @@ class Timer extends RenderObject {
 		super(x, y, width, height, scale)
 		this.index = index
 
-		this.clock = new Clock(10, 60)
+		this.clock = new Clock(60, 60)
 		if (this.index == "minigame2") {
 			this.clock = new Clock(1000, 60)
 		}

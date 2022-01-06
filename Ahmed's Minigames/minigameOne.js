@@ -7,7 +7,7 @@ let flo1Spawn = new SpawnButton(0, 0, 16, 16, flo1.type, 4, "buttonIdle")
 let flo2Spawn = new SpawnButton(0, 0, 16, 16, flo2.type, 4, "buttonIdle")
 let tree1Spawn = new SpawnButton(0, 0, 16, 16, tree.type, 4, "buttonIdle")
 let timer = new Timer(center(64, WIDTH), 0, 64, 32, "minigame1", 4)
-
+let help = new StartupScreen (100, 110, 4)
 let btns = [flo1Spawn, flo2Spawn, tree1Spawn]
 let gui = new Gui(0, 0, 128, 30, 4, btns)
 let font
@@ -19,6 +19,7 @@ function preload() {
 	gImageDatabase['frame'] = loadImage('data/images/entities/frame.png')
 	gImageDatabase['mainframe'] = loadImage('data/images/entities/mainframe.png')
 	gImageDatabase['timerframe'] = loadImage('data/images/entities/timerframe.png')
+	gImageDatabase['helpframe'] = loadImage('data/images/entities/helpframe.png')
 
 	font = loadFont('data/fonts/EarlyGameBoy.ttf')
 	gAnimationDatabase["buttonPressed"] = loadAnimation("data/animations/buttonPressed", [2])
@@ -41,6 +42,7 @@ function draw() {
 	}
 	gui.render()
 	timer.render()
+	help.render()
 	scale(4)
 	image(g, 0, 0)
 }
