@@ -185,7 +185,32 @@ body{
     box-shadow: 0 0 20px 2px;
 }
 
-/* =============== About section D6E2E9 ============*/ 
+#game1{ 
+    background-image: url(Assets/Game1.png);
+    background-size:cover 
+}
+#game2{ 
+    background-image: url(Assets/Game2.png);
+    background-size:cover 
+}
+#game3{ 
+    background-image: url(Assets/Game3.png);
+    background-size:cover 
+}
+#game1{ 
+    background-image: url(Assets/Game1.png);
+    background-size:cover 
+}
+#game5{ 
+    background-image: url(Assets/Game5.png);
+    background-size:cover 
+}
+#comingSoon{ 
+    
+    text-align: center;  
+    font-size: 3em;
+}
+/* =============== About section ============*/ 
 #aboutSection{ 
     width: fit-content;
     margin: auto;

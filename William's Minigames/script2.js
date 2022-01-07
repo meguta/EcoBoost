@@ -14,7 +14,6 @@ var correctChoice = document.getElementById('audio2')
 var wrongChoice = document.getElementById('audio3')
 let active = true
 
-// Gets the id of the container and changes the content within 
 
     let shuffledQuestions, currentQuestionIndex, score = 0
 
@@ -71,7 +70,12 @@ let active = true
     }
     // =============== Event listener to start game  and show instructions 
     
-    startButton.addEventListener('click', () => { playButtonSound(), showInstructions()} )  
+ 
+    startButton.addEventListener('click', () => { 
+        playButtonSound()
+        showInstructions()
+    })  
+  
     // Increments to the next question on "click"
     // As soon as the game starts function starts 
     nextButton.addEventListener('click', () => {
@@ -182,31 +186,31 @@ let active = true
       //Array.from(optionButtons.children).forEach(button => {
       //setStatusClass(button, button.dataset.correct)
       //})
-      if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        showDiv(nextButton)
-      } 
-      else {
-        if (score == 5){ 
-          showDiv(startButton)
-          hideDiv(questionContainer)
-          showDiv(instructions)
-          instructions.innerHTML = "Congratulation! You are now a clean energy expert. Click to move on to the next game."
-          startButton.innerText = 'Next Game' 
-          startButton.addEventListener("click", () => {
-          playButtonSound() 
-          window.location.href="/Ahmed's Minigames/minigameOne.html"})     
-        }
-        else{
-          clearStatusClass(document.body)
-          showDiv(instructions)
-          instructions.innerHTML = "Good Job! You scored: "+score.toString()+ 
-          " points, To move on to the next game you must answer all the question correct"
-          showDiv(startButton)
-          hideDiv(questionContainer)
-          startButton.innerText = 'Restart'
-          score = 0
-          active = true 
-        }
+        if (shuffledQuestions.length > currentQuestionIndex + 1) {
+          showDiv(nextButton)
+        } 
+        else {
+          if (score == 5){ 
+            showDiv(startButton)
+            hideDiv(questionContainer)
+            showDiv(instructions)
+            instructions.innerHTML = "Congratulation! You are now a clean energy expert. Click to move on to the next game."
+            startButton.innerText = 'Next Game' 
+            startButton.addEventListener("click", () => {
+            playButtonSound() 
+            window.location.href="/Ahmed's Minigames/minigameOne.html"})     
+          }
+          else {
+            clearStatusClass(document.body)
+            showDiv(instructions)
+            instructions.innerHTML = "Good Job! You scored: "+ score + 
+            " points, To move on to the next game you must answer all the question correct"
+            showDiv(startButton)
+            hideDiv(questionContainer)
+            startButton.innerText = 'Restart'
+            active = true
+            score = 0
+          }
       }
     }
 
@@ -225,7 +229,7 @@ let active = true
           playWrongSound()
           element.classList.add('wrong')
           //console.log('wrong')
-          }
+        }
       }
       active = false
     }

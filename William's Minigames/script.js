@@ -13,6 +13,8 @@ const lockedSection = document.getElementById("lockedSection")
 const closeLocked = document.getElementById("closeLocked")
 var buttonSound1 = document.getElementById('audio1')
 var buttonSound2 = document.getElementById('audio2')
+var wrongChoice = document.getElementById('audio3')
+
 //https://www.epidemicsound.com/music/featured/
 /** Creating the canvas, adjusted to windows height and width */
 
@@ -24,6 +26,10 @@ function hideDiv(e){
   e.classList.add('hide0');
 }
 
+function playWrongSound(){ 
+     wrongChoice.play()
+    }
+
 //========================= PLAY and LOCKED SECTION ==========================
 function playSound1(){ 
   buttonSound1.play()
@@ -32,13 +38,12 @@ function playSound2(){
   buttonSound2.play()
 }
 
+
 for(var i=0, len = buttons.length; i<len; i++){ 
   buttons[i].addEventListener("click", () => playSound1());
 }
 
-function linkGame() { 
-  buttons[0].href = "Michael's Minigames/MiniGame1/index.html"
-  }
+
 //========================= ABOUT SECTION ==========================
 // Manipulating the DOM if about button is pressed 
 aboutBtn.addEventListener("click", ()=> {
@@ -60,17 +65,20 @@ closeAbout.addEventListener("click", ()=> {
 
 // ================== LOCKED BUTTON PAGE ===============================
 
-lockBtn.addEventListener("click", () => {
-  hideDiv(sec1)
-  hideDiv(header)
-  showDiv(lockedSection)
-  //const container = document.createElement('div')
-  //const preview = document.createElement('div')
-  //container.appendChild(preview)
-  //container.setAttribute('id', 'lockedContainer')
-  //preview.classList.add("previewBtn")
 
-  })
+
+lockBtn.addEventListener("click", () => {
+    hideDiv(sec1)
+    hideDiv(header)
+    showDiv(lockedSection)
+    //const container = document.createElement('div')
+    //const preview = document.createElement('div')
+    //container.appendChild(preview)
+    //container.setAttribute('id', 'lockedContainer')
+    //preview.classList.add("previewBtn")
+
+    })
+  
 closeLocked.addEventListener("click", ()=> { 
     playSound2()
     hideDiv(lockedSection)
