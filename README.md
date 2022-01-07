@@ -6,7 +6,8 @@ that allows users to donate to a charity directly impacting the environment. The
 clubs at school that promote a clean environment and hopefully make them more aware of what is happening around them. 
 
 ## Languages 
-HTML, CSS, Javascript, p5.js
+HTML, CSS, Javascript 
+p5.js libary 
 
 ## Project Managers 
 Ahmed Imana 
