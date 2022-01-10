@@ -1,17 +1,23 @@
-
-const startButton = document.getElementById('startButton')
-const nextButton = document.getElementById('nextButton')
-const questionContainer = document.getElementById('questionContainer')
-const questionElement = document.getElementById('question')
-const optionButtons = document.getElementById('optionButtons')
-const scoreContainer = document.getElementById('scoreContainer')
-const counter = document.getElementById('counter')
-const instructions = document.getElementById('instructions')
+// ================== CONTAINERS/SECTIONS ================== 
 const restartScreen = document.getElementById("restartScreen")
 const congratsScreen = document.getElementById("congratsScreen")
+const questionContainer = document.getElementById('questionContainer')
+const questionElement = document.getElementById('question')
+const scoreContainer = document.getElementById('scoreContainer')
+const instructions = document.getElementById('instructions')
+const counter = document.getElementById('counter')
+
+// ================== BUTTONS ================== 
+const startButton = document.getElementById('startButton')
+const nextButton = document.getElementById('nextButton')
+const optionButtons = document.getElementById('optionButtons')
+
+// ================== AUDIO ================== 
 var buttonSound1 = document.getElementById('audio1')
 var correctChoice = document.getElementById('audio2')
 var wrongChoice = document.getElementById('audio3')
+
+
 let active = true
 
 
@@ -104,7 +110,7 @@ let active = true
                 hideDiv(instructions)
               })}
       
-   //------------------- Function to start the game  --------------------
+   // ======================== Function to start the game  ========================
     
     function startGame() {
       // .classList is a read only property that can be used with .add(), .remove(), .replace(), .toggle()
@@ -120,7 +126,7 @@ let active = true
       setNextQuestion()
     }
     
-    // ----------------- Function to show questions -------------------------
+    // ======================== Function to show questions ========================
     function showQuestion(question) {
       questionElement.innerText = question.question
       question.answers.forEach(answer => {
@@ -138,7 +144,7 @@ let active = true
         flipCardFront.appendChild(img)
         flipCardBack.appendChild(text)
         
-        //Setting the classes for each element  
+    // ======================== Setting the classes for each element   ========================
         container.classList.add('option')
         card.classList.add('optionInner')
         flipCardFront.classList.add('flipFront')
@@ -159,7 +165,7 @@ let active = true
         optionButtons.appendChild(container)
       })
     }
-   // --------------------------- Resetting the buttons after an aswer has been chosen ---------------------------
+   // ======================== Resetting the buttons after an aswer has been chosen ========================
 
     function resetState() {
       clearStatusClass(document.body)
@@ -169,13 +175,13 @@ let active = true
       }
     }
 
-     //------------------- Function to set next question --------------------
+     // ======================== Function to set next question ========================
      function setNextQuestion() {
       resetState()
       showQuestion(shuffledQuestions[currentQuestionIndex])
     }
 
-    // --------------------- Selecting an answer ---------------------
+    // ======================== Selecting an answer ========================
     function selectAnswer(e) {
       const selectedButton = e.target
       console.log(selectedButton)
@@ -234,7 +240,7 @@ let active = true
       active = false
     }
       
-    
+// ======================== Reset state of class  ========================
     function clearStatusClass(element) {
       element.classList.remove('correct')
       element.classList.remove('wrong')

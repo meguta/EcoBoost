@@ -4,15 +4,15 @@
 
 
 header{ 
-    height: 35vh;
+    height: 30vh;
 }
 
-/* ---------- Hiden class ---------*/ 
+/* ========================== Hiden class ========================== */ 
 .hide0 {
     display: none;
 }
 
-/* ---------- Title/ Logo ---------*/ 
+/* ========================== Title/ Logo ========================== */ 
 #main_head{ 
 margin: auto;
 text-align: center;
@@ -24,7 +24,7 @@ font-size: 150px;
 /* ========================== Main body section for div that contains Play, Locked, Unlocked Button =====================*/ 
 
 
-#sec1{ 
+#section{ 
     height: fit-content;
     width: fit-content;
     margin: auto;
@@ -252,7 +252,65 @@ body{
 
 }
 
+/* ========================= Settings ========================= */
 
+#settingsSection{ 
+    height: 95vh;
+    /*display: flex;*/
+    margin:auto;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+
+}
+#settingsContainer {
+    height: 95vh;
+    display: flex;
+    margin:auto;
+    width: fit-content;
+    align-items: center;
+    justify-content: center;
+}
+
+#settingsBtn{ 
+    width: min-content;
+    display:block; 
+    background-color: skyblue;
+    color: royalblue;
+    padding: 5px;
+    text-decoration: none;background-color: rgb(214, 233, 226);
+    border-radius: 15px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+}
+
+#settings{ 
+    width: min-content;
+    height: fit-content;
+    display:block; 
+    background-color: skyblue;
+    color: royalblue;
+    padding: 15px;
+    text-decoration: none;background-color: rgb(214, 233, 226);
+    border-radius: 15px;
+    box-shadow: 0 3px rgba(0, 0, 0, 0.575);
+} 
+
+#settingsBtn:hover{ 
+    opacity: 50%;
+    cursor: pointer;
+}
+
+#closeSettings { 
+    max-width: 30px;
+    position: relative;
+    float: right;
+    position: relative;right: 11%; top: 12%;  
+}
+
+#closeSettings:hover { 
+    opacity: 50%;
+    box-shadow: 0 0 20px 2px;
+}
 
 
 html *{ 
@@ -261,7 +319,7 @@ html *{
 
 /* FOR DEBUGGIN */
 
- *{ outline: 2px solid rgba(245, 245, 245, 0.363); } 
-
+ /* *{ outline: 2px solid rgba(245, 245, 245, 0.363); } 
+*/
 
 
