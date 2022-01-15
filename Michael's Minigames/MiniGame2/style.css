@@ -1,6 +1,13 @@
+@font-face {
+    font-family: 'Common Pixel';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Common Pixel'), url('https://fonts.cdnfonts.com/s/7553/COMMP___.woff') format('woff');
+}
+
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: fantasy;
+    font-family: 'Common Pixel' ,monospace;                                  
 }
 
 :root {
@@ -90,3 +97,4 @@ body.wrong {
 .hide {
     display: none;
 }
+

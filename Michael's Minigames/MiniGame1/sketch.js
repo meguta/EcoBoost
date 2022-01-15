@@ -23,11 +23,16 @@ let noFoodWasteObjects = [];
 let wasteObjects = [];
 let noWasteObjects = [];
 
+// Font
+let font;
+
 // Other variables
 let collect;
 let texts;
 let currentLevel;
 let imagePicker;
+let width;
+let height;
 
 // Stored Objects
 let goodFallingObjects = [[], [], []];
@@ -133,59 +138,66 @@ function preload() {
     noWasteObjects[0] = loadImage('Waste/REDbox.png');
     noWasteObjects[1] = loadImage('Waste/REDpaper.png');
     noWasteObjects[2] = loadImage('Waste/REDplastic.png');
+
+    // Font
+    font = loadFont('Font/commonPixel.woff');
 }
 
 function setup() {
-    createCanvas(600, 400);
+    createCanvas(displayWidth - 80, displayHeight - 150);
+    width = displayWidth - 80;
+    height = displayHeight - 150;
     currentLevel = -1;
     collect = new Collection();
-    texts = new Text();
-
+    texts = new Text(font);
+   
     // Created objects, set location, and set image 
-    for (let c = 0; c < 50; c++) {
-        goodFallingObjects[0][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+    for (let c = 0; c < 75; c++) {
+        goodFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
         , recycleObjects[Math.floor(Math.random() * recycleObjects.length)]);
-        goodFallingObjects[1][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+        goodFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
         , foodWasteObjects[Math.floor(Math.random() * foodWasteObjects.length)]);
-        goodFallingObjects[2][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+        goodFallingObjects[2][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
         , wasteObjects[Math.floor(Math.random() * wasteObjects.length)]);
     } 
     
     for (let c = 0; c < 50; c++) {
-        badFallingObjects[0][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+        badFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
         , noRecycleObjects[Math.floor(Math.random() * noRecycleObjects.length)]);
-        badFallingObjects[1][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+        badFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
         , noFoodWasteObjects[Math.floor(Math.random() * noFoodWasteObjects.length)]);
-        badFallingObjects[2][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+        badFallingObjects[2][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
         , noWasteObjects[Math.floor(Math.random() * noWasteObjects.length)]);
     } 
 }
 
 function draw() {
-    image(startScreen, 0, 0, 600, 400);
+    background(255);
 
     // Set boundaries
-    if (collect.x < -25) {
-        collect.x = 600;
-    } else if (collect.x > 625) {
-        collect.x = 0;
+    if (collect.x < width * 0.03) {
+        collect.x = width * 0.97;
+    } else if (collect.x > width * 0.98) {
+        collect.x = width * 0.04
     } else {
         collect.move();
     }  
 
     // Start screen 
     if (currentLevel == -1) {
+        image(startScreen, displayWidth * 0.05, 0, displayWidth - 80, displayHeight - 150);
         texts.start();
     }
 
     // Instructions screen
     if (currentLevel == 0) {
+        image(startScreen, displayWidth * 0.05, 0, displayWidth - 80, displayHeight - 150);
         texts.instructions();
     }
 
     // Level 1 
     if (currentLevel == 1) {
-        image(level1Background, 0, 0, 600, 400);
+        image(level1Background, displayWidth * 0.05, 0, displayWidth - 80, displayHeight - 150);
         texts.level1();
 
         collect.show(recycle);
@@ -223,7 +235,7 @@ function draw() {
 
     // Level 2 
     if (currentLevel == 2) {
-        image(level2Background, 0, 0, 600, 400);
+        image(level2Background, displayWidth * 0.05, 0, displayWidth - 80, displayHeight - 150);
         texts.level2();
 
         collect.show(foodWaste);
@@ -261,7 +273,7 @@ function draw() {
 
     // Level 3
     if (currentLevel == 3) {
-        image(level3Background, 0, 0, 600, 400);
+        image(level3Background, displayWidth * 0.05, 0, displayWidth - 80, displayHeight - 150);
         texts.level3();
 
         collect.show(waste);
@@ -328,34 +340,34 @@ function keyPressed() {
     if (keyCode == ENTER && scoreNumber1 < 15 && goodFallingObjects[0].length == 0) {
         currentLevel = 1;  
         scoreNumber1 = 0;       
-        for (let c = 0; c < 50; c++) {
-            goodFallingObjects[0][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+        for (let c = 0; c < 75; c++) {
+            goodFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , recycleObjects[Math.floor(Math.random() * recycleObjects.length)]);
         }
         for (let c = 0; c < 50; c++) {
-            badFallingObjects[0][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+            badFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , noRecycleObjects[Math.floor(Math.random() * noRecycleObjects.length)]);
         }
     } else if (keyCode == ENTER && scoreNumber2 < 20 && goodFallingObjects[1].length == 0) {
         currentLevel = 2;  
         scoreNumber2 = 0;       
-        for (let c = 0; c < 50; c++) {
-            goodFallingObjects[1][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+        for (let c = 0; c < 75; c++) {
+            goodFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , foodWasteObjects[Math.floor(Math.random() * foodWasteObjects.length)]);
         }
         for (let c = 0; c < 50; c++) {
-            badFallingObjects[1][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+            badFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , noFoodWasteObjects[Math.floor(Math.random() * noFoodWasteObjects.length)]);
         }
     } else if (keyCode == ENTER && scoreNumber3 < 25 && goodFallingObjects[2].length == 0) {
         currentLevel = 3;  
         scoreNumber3 = 0;       
-        for (let c = 0; c < 50; c++) {
-            goodFallingObjects[2][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+        for (let c = 0; c < 75; c++) {
+            goodFallingObjects[2][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , wasteObjects[Math.floor(Math.random() * wasteObjects.length)]);
         }
         for (let c = 0; c < 50; c++) {
-            badFallingObjects[2][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+            badFallingObjects[2][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , noWasteObjects[Math.floor(Math.random() * noWasteObjects.length)]);
         }
     } else if (keyCode == ENTER && goodFallingObjects[0].length == 0 && goodFallingObjects[1].length == 0 && goodFallingObjects[2].length == 0) {
@@ -363,20 +375,21 @@ function keyPressed() {
         scoreNumber1 = 0;
         scoreNumber2 = 0;
         scoreNumber3 = 0;
-        for (let c = 0; c < 50; c++) {
-            goodFallingObjects[0][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+        for (let c = 0; c < 75; c++) {
+            goodFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , recycleObjects[Math.floor(Math.random() * recycleObjects.length)]);
-            goodFallingObjects[1][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+            goodFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , foodWasteObjects[Math.floor(Math.random() * foodWasteObjects.length)]);
-            goodFallingObjects[2][c] = new Objects(16 + Math.floor(Math.random() * 580),Math.floor(Math.random() * 3200) - 3200
+            goodFallingObjects[2][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , wasteObjects[Math.floor(Math.random() * wasteObjects.length)]);
         } 
+        
         for (let c = 0; c < 50; c++) {
-            badFallingObjects[0][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+            badFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , noRecycleObjects[Math.floor(Math.random() * noRecycleObjects.length)]);
-            badFallingObjects[1][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+            badFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , noFoodWasteObjects[Math.floor(Math.random() * noFoodWasteObjects.length)]);
-            badFallingObjects[2][c] = new Objects(16 + Math.floor(Math.random() * 580), Math.floor(Math.random() * 3200) - 3200
+            badFallingObjects[2][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , noWasteObjects[Math.floor(Math.random() * noWasteObjects.length)]);
         } 
     } else if (keyCode == UP_ARROW && goodFallingObjects[0].length == 0 && goodFallingObjects[1].length == 0 && goodFallingObjects[2].length == 0) {
