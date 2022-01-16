@@ -141,7 +141,7 @@ body{
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-    user-select: none;
+     user-select: none;
 }
 
 
@@ -311,6 +311,7 @@ body{
     opacity: 50%;
     box-shadow: 0 0 20px 2px;
 }
+
 
 
 html *{ 
