@@ -7,6 +7,7 @@ const scoreContainer = document.getElementById('scoreContainer')
 const instructions = document.getElementById('instructions')
 const counter = document.getElementById('counter')
 
+
 // ================== BUTTONS ================== 
 const startButton = document.getElementById('startButton')
 const nextButton = document.getElementById('nextButton')
@@ -29,13 +30,13 @@ let active = true
         answers: [
           { text: 'Solar', src:'Assets/SOLAR.png' ,correct: true },
           { text: 'Coal', src:'Assets/COAL.png' ,correct: false }
-        ]
+        ],
       },
       {
         question: 'Which is the Cleaner Energy?',
         answers: [
           { text: 'Hydro',src:'Assets/HYDRO.png', correct: true },
-          { text: 'Petroleum',src:'Assets/PETROLEUM.jpg' , correct: false },
+          { text: 'Petroleum',src:'Assets/PETROLEUM.png' , correct: false },
 
         ]
       },
@@ -43,27 +44,36 @@ let active = true
         question: 'Which is the Cleaner Energy?',
         answers: [
           { text: 'Wind', src:'Assets/WIND.png' ,correct: true },
-          { text: 'Natural Gases', src:'Assets/NATURALGAS.jpg' ,correct: false },
+          { text: 'Natural Gases', src:'Assets/NATURAL GAS.png' ,correct: false },
         ]
       },
       {
         question: 'Which is the Cleaner Energy?',
         answers: [
           { text: 'Nuclear',src:'Assets/NUCLEAR.png' , correct: false },
-          { text: 'Biomas', src:'Assets/SOLAR.png' ,correct: true }
+          { text: 'Biomass', src:'Assets/BIOMASS.png' ,correct: true }
         ]
       },
       {
          question: 'Which is the Cleaner Energy?',
          answers: [
            { text: 'Uranium', src:'Assets/URANIUM.png' ,correct: false },
-           { text: 'Geothermal', src:'Assets/SOLAR.png' ,correct: true }
+           { text: 'Geothermal', src:'Assets/GEOTHERMAL.png' ,correct: true }
          ]
        }
+    
+    ]
+    const explain = [ 
+      {0: 'Correct answer is SOLAR! Solar energy is created when using solar panels that absorb the suns heat, creating energy.'},
+      {1: 'Correct answer is HYDRO! Hydro or water energy is generated using the force of waves from the ocean to turn underwater turbines.'},
+      {3: 'Correct answer is WIND! Wind energy is created when strong winds hit wind turbines rotating it to create electricity'},
+      {4: 'Correct answer is BIOMASS! Bimoas is created through buring waste which then moves turbines'},
+      {5: 'Correct answer is GEOTHERMAL! Geothermal energy is created through hot steam which comes from underground' },
+    ]
 
 // https://www.google.com/search?q=coal+pixel+art&sxsrf=AOaemvJNuaTvEntDPlONWQBj2ipd-lYLEA:1639154412261&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjNmOWD1tn0AhUBCM0KHaD2CaUQ_AUoAXoECAEQAw&biw=1396&bih=695&dpr=2#imgrc=86Iz68C_tna3gM
       
-    ]
+    
     // =============== SOUND EFFECTS ============ 
     function playButtonSound(){ 
       buttonSound1.play()
@@ -220,7 +230,7 @@ let active = true
       }
     }
 
-    
+
     function setStatusClass(element, correct) {
       clearStatusClass(element)
       if (active) { 
