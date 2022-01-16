@@ -12,7 +12,7 @@ function Collection() {
     }
 
     this.move = function() {
-        this.x += this.xdir * 10;
+        this.x += this.xdir * 9;
     }
     
     this.hits = function(object) {
