@@ -26,11 +26,11 @@ class Entity extends RenderObject {
 
 	events(draggable) {
 		if (mouseIsPressed && (draggable || this.drag) && !gGameOver) {
-			if (this.collidepoint(mouseX/this.scale, mouseY/this.scale) || this.drag) {
+			if (this.collidepoint(pmouseX/SCALE, pmouseY/SCALE) || this.drag) {
 				this.drag = true
 
-				let tempx = (mouseX-this.width*2)/this.scale
-				let tempy = (mouseY-this.height*2)/this.scale
+				let tempx = (pmouseX-this.width*2)/SCALE
+				let tempy = (pmouseY-this.height*2)/SCALE
 
 				this.snapToGrid()
 				move(this, [tempx, tempy], rects)

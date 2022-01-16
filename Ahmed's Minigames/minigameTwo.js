@@ -150,7 +150,7 @@ class Enemy extends RenderObject {
 				this.inRange = false;
 			}
 
-			if (this.inRange) {
+			if (this.inRange && !GAMEOVER) {
 				gForests[minIndex].healthBar.health -= 0.1
 			}
 			
@@ -249,6 +249,10 @@ class Forest extends RenderObject {
 		this.isDead = false
 	}
 
+	getHealth() {
+		return this.healthBar.health
+	}
+
 	render () {
         this.load()
 		if (this.x == gWidth-64) {
@@ -319,7 +323,8 @@ class GameController {
 	events () {
 		if (this.waveTime >= 0) {
 			this.waveTime -= 1
-			if (this.waveTime % 300 == 1) {
+			print ("!!! " + this.waveTime % (this.getTotalEnemies()*60) );
+			if (this.waveTime % (this.waveLength/this.getTotalEnemies()) == 1) {
 				if (this.waveEnemies < this.waveDiff*this.currentWave) {
 					if (randInt(0, 2) == 1) {
 						gEnemies.push(new Enemy(randInt(-16, 0), randInt(-16, 0), 16, 16,'enemy', 4))
@@ -332,7 +337,7 @@ class GameController {
 				}
 			}
 		} else {
-			if (this.currentWave >= this.maxWave) {
+			if (this.currentWave >= this.waves) {
 				GAMEOVER = true
 			} else {
 				this.waveTime = this.waveLength
@@ -345,11 +350,21 @@ class GameController {
 
 }
 function preload () {
+	gImageDatabase['flower1'] = loadImage('data/images/entities/flower1.png')
+	gImageDatabase['tree1'] = loadImage('data/images/entities/tree1.png')
+	gImageDatabase['flower2'] = loadImage('data/images/entities/flower2.png')
+	gImageDatabase['helpframe'] = loadImage('data/images/entities/helpframe.png')
+	gImageDatabase['helpbutton'] = loadImage('data/images/entities/helpbutton.png')
 	gImageDatabase["forest"] = loadImage("data/images/entities/forest.png")
 	gImageDatabase["enemy"] = loadImage("data/images/entities/enemy.png")
 	gImageDatabase['timerframe'] = loadImage('data/images/entities/largetimerframe.png')
 
-	font = loadFont('data/fonts/EarlyGameBoy.ttf')
+	gImageDatabase['badending2'] = loadImage('data/images/backgrounds/badending2.jpg')
+	gImageDatabase['goodending2'] = loadImage('data/images/backgrounds/goodending2.jpg')
+	gImageDatabase['tryagain'] = loadImage('data/images/entities/tryagainbutton.png')
+	gImageDatabase['nextbutton'] = loadImage('data/images/entities/nextbutton.png')
+
+	font = loadFont('data/fonts/COMMP___.TTF')
 }
 
 let mean = new Enemy(80, 80, 16, 16, 'enemy', 4)
@@ -367,7 +382,8 @@ let furry3 = new Forest(gWidth-64,         32, 32, 32, 'forest');
 let gForests = [furry, furry1, furry2, furry3]
 
 let gCollisonRects = []
-let game = new GameController(10, 200)
+let game = new GameController(4, 900)
+let help = new StartupScreen (100, 110, "minigame2", SCALE)
 
 function setup() {
     createCanvas(gWidth*4, gHeight*4)
@@ -387,18 +403,24 @@ function setup() {
 }
 
 let timer = new Timer(center(128, gWidth), 0, 128, 32, "minigame2", 4)
-
+SCALE = 4
 function draw() {
 	p5.disableFriendlyErrors = true
-	game.events()
 	//print("POOOPOO")
 	try {
     	g.noSmooth()
 	} catch (e) {}
     g.background('#38d88e')
+	let allDead = true
 	for (let i=0;i<gForests.length;i++){
 		gForests[i].render()
+		if (!gForests[i].isDead) {
+			allDead = false
+		}
 	}	
+	if (allDead) {
+		GAMEOVER = true
+	}
 	for(let i=0;i<gCollisonRects.length; i++){
 		if (gCollisonRects[i].type == 'enemy'){
 			gCollisonRects[i].render()
@@ -411,6 +433,7 @@ function draw() {
 			}
 		}
 	}
+
 	for (let i=0;i<gEnemies.length; i++){
 		if (gEnemies[i].isDead) {
 			gEnemies.splice(i, 1)
@@ -418,7 +441,10 @@ function draw() {
 	}
     // furry.render()
 	// furry1.render()
-	timer.render()
-    scale(4)
+    if (help.render()) {
+		game.events()
+		timer.render()
+	}
+    scale(SCALE)
     image(g, 0, 0)
 }

@@ -2,11 +2,13 @@ class Timer extends RenderObject {
 	constructor (x,y,width,height, index, scale) {
 		super(x, y, width, height, scale)
 		this.index = index
-
-		this.clock = new Clock(60, 60)
+		this.endScreen = new EndScreen(100, 110, SCALE)
+		this.clock = new Clock(15, 60)
 		if (this.index == "minigame2") {
-			this.clock = new Clock(1000, 60)
+			this.clock = new Clock(60, 60)
+			this.endScreen = new EndScreen(100, 110, "minigame2", SCALE)
 		}
+		
 		this.fade = 0
 	}
 	render () {
@@ -57,7 +59,8 @@ class Timer extends RenderObject {
 				g.textSize(20)
 				text = "WAVE CLEARED"
 				tWidth = g.textWidth(text)
-				g.text(text, center(tWidth, gWidth)+this.x, center(20, gHeight)-15, 100, 50)
+				g.textAlign(CENTER, TOP)
+				g.text(text, 0, 0, gWidth, gHeight)
 				
 
 			} else {
@@ -66,22 +69,25 @@ class Timer extends RenderObject {
 			}
 
 		}
-
-
 		if (this.gGameOver()) {
 			this.fade = lerp(this.fade, 150, 0.05)
 			g.background(0, this.fade)
-			g.fill('#00BE91')
-			tWidth = g.textWidth("You got: " + this.getScore() + " points!")
-			g.text("You got: " + this.getScore() + " points!", center(tWidth, this.width)+this.x, center(10, HEIGHT), tWidth, this.height)
-
-			g.fill('#f2ff66')
-			tWidth = g.textWidth("Game Over!")
-			g.text("Game Over!", center(tWidth, this.width)+this.x, center(10, HEIGHT)-15, 100, 50)
 			gGameOver = true
-
-			if (this.fade > 149) {
-				window.location.href = "minigameTwo.html"
+			this.endScreen.render(this.getScore())
+			if (this.endScreen.render(this.getScore())) {
+				if (this.index == "minigame1") {
+					if (this.getScore() < 150) {
+						window.location.href = "minigameOne.html"
+					} else {
+						window.location.href = "minigameTwo.html"
+					}
+				} else {
+					if (this.getScore() < 150) {
+						window.location.href = "minigameTwo.html"
+					} else {
+						window.location.href = "/index.html"
+					}
+				}
 			}
 		}
 	}
@@ -120,13 +126,18 @@ class Timer extends RenderObject {
 
 
 		} else if (this.index == "minigame2"){
-			return 100;
+			let score=0;
+			for (let i=0;i<gForests.length;i++) {
+				score+=int(gForests[i].getHealth())
+			}
+			return score
 
 		}
 	}
 
 	gGameOver() {
-		if (this.clock.time == 0){	
+		if (this.clock.time == 0 || GAMEOVER){	
+			GAMEOVER = true
 			return true 
 		}
 	}
