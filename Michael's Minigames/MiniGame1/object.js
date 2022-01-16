@@ -1,14 +1,14 @@
 function Objects(x, y, object) {
     this.x = x;
     this.y = y;
-    this.ydir = 1.2;
+    this.ydir = 2.75;
 
     this.move = function() {
         this.y += this.ydir;
     }
 
     this.show = function() {
-        image(object, this.x, this.y, 30, 30);
+        image(object, this.x, this.y, 60, 60);
     }
 }
 

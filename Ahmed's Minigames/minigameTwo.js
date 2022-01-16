@@ -1,5 +1,6 @@
 // https://meguta.loca.lt
-GAMEOVER = false
+var GAMEOVER = false
+
 class HealthBar extends RenderObject {
     constructor (x, y, width, height, maxHealth, scale) {
         super(x, y, width, height, scale)

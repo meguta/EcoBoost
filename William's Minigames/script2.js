@@ -1,20 +1,26 @@
-
-const startButton = document.getElementById('startButton')
-const nextButton = document.getElementById('nextButton')
-const questionContainer = document.getElementById('questionContainer')
-const questionElement = document.getElementById('question')
-const optionButtons = document.getElementById('optionButtons')
-const scoreContainer = document.getElementById('scoreContainer')
-const counter = document.getElementById('counter')
-const instructions = document.getElementById('instructions')
+// ================== CONTAINERS/SECTIONS ================== 
 const restartScreen = document.getElementById("restartScreen")
 const congratsScreen = document.getElementById("congratsScreen")
+const questionContainer = document.getElementById('questionContainer')
+const questionElement = document.getElementById('question')
+const scoreContainer = document.getElementById('scoreContainer')
+const instructions = document.getElementById('instructions')
+const counter = document.getElementById('counter')
+
+
+// ================== BUTTONS ================== 
+const startButton = document.getElementById('startButton')
+const nextButton = document.getElementById('nextButton')
+const optionButtons = document.getElementById('optionButtons')
+
+// ================== AUDIO ================== 
 var buttonSound1 = document.getElementById('audio1')
 var correctChoice = document.getElementById('audio2')
 var wrongChoice = document.getElementById('audio3')
+
+
 let active = true
 
-// Gets the id of the container and changes the content within 
 
     let shuffledQuestions, currentQuestionIndex, score = 0
 
@@ -24,13 +30,13 @@ let active = true
         answers: [
           { text: 'Solar', src:'Assets/SOLAR.png' ,correct: true },
           { text: 'Coal', src:'Assets/COAL.png' ,correct: false }
-        ]
+        ],
       },
       {
         question: 'Which is the Cleaner Energy?',
         answers: [
           { text: 'Hydro',src:'Assets/HYDRO.png', correct: true },
-          { text: 'Petroleum',src:'Assets/PETROLEUM.jpg' , correct: false },
+          { text: 'Petroleum',src:'Assets/PETROLEUM.png' , correct: false },
 
         ]
       },
@@ -38,27 +44,36 @@ let active = true
         question: 'Which is the Cleaner Energy?',
         answers: [
           { text: 'Wind', src:'Assets/WIND.png' ,correct: true },
-          { text: 'Natural Gases', src:'Assets/NATURALGAS.jpg' ,correct: false },
+          { text: 'Natural Gases', src:'Assets/NATURAL GAS.png' ,correct: false },
         ]
       },
       {
         question: 'Which is the Cleaner Energy?',
         answers: [
           { text: 'Nuclear',src:'Assets/NUCLEAR.png' , correct: false },
-          { text: 'Biomas', src:'Assets/SOLAR.png' ,correct: true }
+          { text: 'Biomass', src:'Assets/BIOMASS.png' ,correct: true }
         ]
       },
       {
          question: 'Which is the Cleaner Energy?',
          answers: [
            { text: 'Uranium', src:'Assets/URANIUM.png' ,correct: false },
-           { text: 'Geothermal', src:'Assets/SOLAR.png' ,correct: true }
+           { text: 'Geothermal', src:'Assets/GEOTHERMAL.png' ,correct: true }
          ]
        }
+    
+    ]
+    const explain = [ 
+      {0: 'Correct answer is SOLAR! Solar energy is created when using solar panels that absorb the suns heat, creating energy.'},
+      {1: 'Correct answer is HYDRO! Hydro or water energy is generated using the force of waves from the ocean to turn underwater turbines.'},
+      {3: 'Correct answer is WIND! Wind energy is created when strong winds hit wind turbines rotating it to create electricity'},
+      {4: 'Correct answer is BIOMASS! Bimoas is created through buring waste which then moves turbines'},
+      {5: 'Correct answer is GEOTHERMAL! Geothermal energy is created through hot steam which comes from underground' },
+    ]
 
 // https://www.google.com/search?q=coal+pixel+art&sxsrf=AOaemvJNuaTvEntDPlONWQBj2ipd-lYLEA:1639154412261&source=lnms&tbm=isch&sa=X&ved=2ahUKEwjNmOWD1tn0AhUBCM0KHaD2CaUQ_AUoAXoECAEQAw&biw=1396&bih=695&dpr=2#imgrc=86Iz68C_tna3gM
       
-    ]
+    
     // =============== SOUND EFFECTS ============ 
     function playButtonSound(){ 
       buttonSound1.play()
@@ -71,7 +86,12 @@ let active = true
     }
     // =============== Event listener to start game  and show instructions 
     
-    startButton.addEventListener('click', () => { playButtonSound(), showInstructions()} )  
+ 
+    startButton.addEventListener('click', () => { 
+        playButtonSound()
+        showInstructions()
+    })  
+  
     // Increments to the next question on "click"
     // As soon as the game starts function starts 
     nextButton.addEventListener('click', () => {
@@ -100,7 +120,7 @@ let active = true
                 hideDiv(instructions)
               })}
       
-   //------------------- Function to start the game  --------------------
+   // ======================== Function to start the game  ========================
     
     function startGame() {
       // .classList is a read only property that can be used with .add(), .remove(), .replace(), .toggle()
@@ -116,7 +136,7 @@ let active = true
       setNextQuestion()
     }
     
-    // ----------------- Function to show questions -------------------------
+    // ======================== Function to show questions ========================
     function showQuestion(question) {
       questionElement.innerText = question.question
       question.answers.forEach(answer => {
@@ -134,7 +154,7 @@ let active = true
         flipCardFront.appendChild(img)
         flipCardBack.appendChild(text)
         
-        //Setting the classes for each element  
+    // ======================== Setting the classes for each element   ========================
         container.classList.add('option')
         card.classList.add('optionInner')
         flipCardFront.classList.add('flipFront')
@@ -155,7 +175,7 @@ let active = true
         optionButtons.appendChild(container)
       })
     }
-   // --------------------------- Resetting the buttons after an aswer has been chosen ---------------------------
+   // ======================== Resetting the buttons after an aswer has been chosen ========================
 
     function resetState() {
       clearStatusClass(document.body)
@@ -165,13 +185,13 @@ let active = true
       }
     }
 
-     //------------------- Function to set next question --------------------
+     // ======================== Function to set next question ========================
      function setNextQuestion() {
       resetState()
       showQuestion(shuffledQuestions[currentQuestionIndex])
     }
 
-    // --------------------- Selecting an answer ---------------------
+    // ======================== Selecting an answer ========================
     function selectAnswer(e) {
       const selectedButton = e.target
       console.log(selectedButton)
@@ -182,35 +202,35 @@ let active = true
       //Array.from(optionButtons.children).forEach(button => {
       //setStatusClass(button, button.dataset.correct)
       //})
-      if (shuffledQuestions.length > currentQuestionIndex + 1) {
-        showDiv(nextButton)
-      } 
-      else {
-        if (score == 5){ 
-          showDiv(startButton)
-          hideDiv(questionContainer)
-          showDiv(instructions)
-          instructions.innerHTML = "Congratulation! You are now a clean energy expert. Click to move on to the next game."
-          startButton.innerText = 'Next Game' 
-          startButton.addEventListener("click", () => {
-          playButtonSound() 
-          window.location.href="/Ahmed's Minigames/minigameOne.html"})     
-        }
-        else{
-          clearStatusClass(document.body)
-          showDiv(instructions)
-          instructions.innerHTML = "Good Job! You scored: "+score.toString()+ 
-          " points, To move on to the next game you must answer all the question correct"
-          showDiv(startButton)
-          hideDiv(questionContainer)
-          startButton.innerText = 'Restart'
-          score = 0
-          active = true 
-        }
+        if (shuffledQuestions.length > currentQuestionIndex + 1) {
+          showDiv(nextButton)
+        } 
+        else {
+          if (score == 5){ 
+            showDiv(startButton)
+            hideDiv(questionContainer)
+            showDiv(instructions)
+            instructions.innerHTML = "Congratulation! You are now a clean energy expert. Click to move on to the next game."
+            startButton.innerText = 'Next Game' 
+            startButton.addEventListener("click", () => {
+            playButtonSound() 
+            window.location.href="/Ahmed's Minigames/minigameOne.html"})     
+          }
+          else {
+            clearStatusClass(document.body)
+            showDiv(instructions)
+            instructions.innerHTML = "Good Job! You scored: "+ score + 
+            " points, To move on to the next game you must answer all the question correct"
+            showDiv(startButton)
+            hideDiv(questionContainer)
+            startButton.innerText = 'Restart'
+            active = true
+            score = 0
+          }
       }
     }
 
-    
+
     function setStatusClass(element, correct) {
       clearStatusClass(element)
       if (active) { 
@@ -225,12 +245,12 @@ let active = true
           playWrongSound()
           element.classList.add('wrong')
           //console.log('wrong')
-          }
+        }
       }
       active = false
     }
       
-    
+// ======================== Reset state of class  ========================
     function clearStatusClass(element) {
       element.classList.remove('correct')
       element.classList.remove('wrong')

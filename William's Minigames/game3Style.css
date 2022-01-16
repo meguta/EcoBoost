@@ -31,7 +31,7 @@ body{
 
 }
 
-/* ------------------- Background change choosing a answer  Correct(Green), Wrong(Red) -----------------*/
+/* ================== Background change choosing a answer  Correct(Green), Wrong(Red) ================== */
 body.correct{ 
     --hue: var(--hue-correct);
 
@@ -42,7 +42,7 @@ body.wrong{
 }
 
 
-/* ------------------- Header   -----------------*/
+/* ================== Header  ================== */
 header{ 
     height: 30vh;
 
@@ -60,7 +60,7 @@ header{
 }
 
 #game3Name{ 
-    background: -webkit-linear-gradient(#0ec96c,white);
+    background: #EDF2F4;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     
@@ -80,7 +80,7 @@ header{
     
 }
 
-/* ------------------- Score    -----------------*/
+/* ================== Score ==================*/ 
 #scoreContainer{
     font-size:2em;
     height: 50vh;
@@ -92,7 +92,7 @@ header{
 }
 
 
-/* ------------------- Questions and options  DIV -----------------*/
+/* ================== Questions and options  DIV ================== */
 .container{ 
     height: 50vh;
     padding: 20px;
@@ -126,7 +126,7 @@ header{
     font-size: xx-large;
 }
 
-/*---------------------- Start Button and Next Button ----------------------*/
+/* ================== Start Button and Next Button ================== */
 #startButton { 
     background-color: rgb(214, 233, 226);
     margin: auto;
@@ -174,7 +174,7 @@ header{
     
 }
 
-/* ---------------- OPTION BUTTONS FLIP CARDS  ----------*/
+/* ================== OPTION BUTTONS FLIP CARDS  ================== */
 
 .option {
     position: relative; top: 60px;
@@ -254,7 +254,7 @@ header{
     text-align: center;
     margin-top: 40%;
 }
-/* ---------------- Instructions----------*/
+/* ================== Instructions ================== */
 #instructions{ 
     padding: 10px;
     font-size: xx-large;

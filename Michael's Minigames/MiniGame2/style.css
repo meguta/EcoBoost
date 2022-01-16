@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
 *, *::before, *::after {
     box-sizing: border-box;
-    font-family: fantasy;
+    font-size: xx-large;
+    font-family: 'VT323', monospace;                                  
 }
 
 :root {
@@ -90,3 +93,4 @@ body.wrong {
 .hide {
     display: none;
 }
+
