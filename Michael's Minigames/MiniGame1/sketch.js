@@ -140,7 +140,7 @@ function preload() {
     noWasteObjects[2] = loadImage('Waste/REDplastic.png');
 
     // Font
-    font = loadFont('Font/commonPixel.woff');
+    font = loadFont('Font/normalFont.ttf');
 }
 
 function setup() {
