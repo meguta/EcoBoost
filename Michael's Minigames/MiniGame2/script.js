@@ -167,13 +167,13 @@ function displayBackgroundImage(srcLeft, srcRight) {
     rightImage.src = srcRight
     leftImage.width = 500
     leftImage.height = 500 
-    leftImage.style.left = '150px'
+    leftImage.style.left = '50px'
     leftImage.style.position = 'fixed'
     leftImage.style.zIndex = '-1'
     leftImage.style.backgroundRepeat = 'no-repeat'
     rightImage.width = 500
     rightImage.height = 500 
-    rightImage.style.left = '900px'
+    rightImage.style.right = '50px'
     rightImage.style.position = 'fixed'
     rightImage.style.zIndex = '-1'
     rightImage.style.backgroundRepeat = 'no-repeat'
