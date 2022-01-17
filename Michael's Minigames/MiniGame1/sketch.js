@@ -393,7 +393,7 @@ function keyPressed() {
             , noWasteObjects[Math.floor(Math.random() * noWasteObjects.length)]);
         } 
     } else if (keyCode == UP_ARROW && goodFallingObjects[0].length == 0 && goodFallingObjects[1].length == 0 && goodFallingObjects[2].length == 0) {
-        window.location.href = "/Michael's Minigames/Minigame2/index.html"
+        window.location.href = "/Michael's Minigames/MiniGame2/index.html"
     }
 
     // Moving left and right
