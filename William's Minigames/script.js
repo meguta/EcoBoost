@@ -47,7 +47,11 @@ function playSound2(){
   buttonSound2.play()
 }
 
-
+function start(){ 
+  lockBtn.innerHTML = 'Locked'
+  checkComplete()
+  console.log(GAMEOVER)
+}
 
 for(var i=0, len = buttons.length; i<len; i++){ 
   buttons[i].addEventListener("click", () => playSound1());
@@ -74,22 +78,28 @@ closeAbout.addEventListener("click", () => {
 })
 
 // ================== LOCKED BUTTON PAGE ===============================
+closeLocked.addEventListener("click", () => { 
+  playSound2()
+  hideDiv(lockedSection)
+  showDiv(section)
+  showDiv(header)
+  console.log('closed')
+})
 
-
-lockBtn.addEventListener("click", () => {
+function checkComplete() { 
+  if (GAMEOVER == true) { 
+    lockBtn.innerHTML = 'Unlocked'
+    lockBtn.addEventListener("click", () => {
     hideDiv(section)
     hideDiv(header)
     showDiv(lockedSection)
-    })
-  
-closeLocked.addEventListener("click", () => { 
-    playSound2()
-    hideDiv(lockedSection)
-    showDiv(section)
-    showDiv(header)
-    console.log('closed')
-  })
+      })
+    }
+  else { 
+    lockBtn.innerHTML = 'Locked'
 
+  }
+}
 
 //========================= Settings ========================= 
 settingsBtn.addEventListener("click", () => {
