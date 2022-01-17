@@ -50,7 +50,7 @@ function playSound2(){
 function start(){ 
   lockBtn.innerHTML = 'Locked'
   checkComplete()
-  console.log(GAMEOVER)
+  console.log('Gameover is ' + GAMEOVER)
 }
 
 for(var i=0, len = buttons.length; i<len; i++){ 
