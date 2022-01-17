@@ -116,6 +116,7 @@ class EndScreen extends RenderObject {
         }
         super (x, y, width, height, scale)
         this.index = index
+        this.selectCode = Math.floor(Math.random()*3)
         this.button = new EndButton(center(90, this.width)+this.x,this.y+90, 90, 20, SCALE)
     }
 
@@ -125,7 +126,7 @@ class EndScreen extends RenderObject {
         g.textAlign(LEFT)
         let pX = 23
 
-        g.textSize(10)
+        g.textSize(8)
         let text = ""
         if (score > 150) {
             text = "YOU WON!"
@@ -134,7 +135,12 @@ class EndScreen extends RenderObject {
         }
         let tWidth = g.textWidth(text)
         g.textAlign(CENTER)
-        g.text(text, this.x, this.y+7.5, this.width, this.height)
+        g.text(text, this.x, this.y+5, this.width, this.height)
+
+        g.textSize(4)
+        let codes = [11223, 30292, 22331]
+        text = "CODE FOR COSEMETIC SHOP: " + codes[this.selectCode]
+        g.text(text, this.x, this.y+14, this.width, this.height)
 
         if (this.index =="minigame1") {
             if (score > 150){
