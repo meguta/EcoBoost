@@ -10,7 +10,7 @@ class TextBox extends RenderObject {
     }
     render () {
         g.image(gImageDatabase['textbox'], this.x, this.y)
-        print(this.collidepoint(pmouseX/SCALE, pmouseY/SCALE))
+        //print(this.collidepoint(pmouseX/SCALE, pmouseY/SCALE))
         if (!this.collidepoint(pmouseX/SCALE, pmouseY/SCALE)){
             this.pressed=false
         }
