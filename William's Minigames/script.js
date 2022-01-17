@@ -87,7 +87,7 @@ closeLocked.addEventListener("click", () => {
 })
 
 function checkComplete() { 
-  if (GAMEOVER == true) { 
+  if (sessionStorage.getItem("GAMEOVER") == "true") { 
     lockBtn.innerHTML = 'Unlocked'
     lockBtn.addEventListener("click", () => {
     hideDiv(section)

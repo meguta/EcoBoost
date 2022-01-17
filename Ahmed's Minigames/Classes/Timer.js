@@ -85,6 +85,7 @@ class Timer extends RenderObject {
 					if (this.getScore() < 150) {
 						window.location.href = "minigameTwo.html"
 					} else {
+						sessionStorage.setItem("GAMEOVER", "true")
 						window.location.href = "/index.html"
 					}
 				}
