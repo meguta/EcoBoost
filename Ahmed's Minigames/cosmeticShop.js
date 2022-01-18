@@ -24,7 +24,7 @@ class TextBox extends RenderObject {
                     }
                 } else if (key=="Enter") {
                     if (this.text == this.code) {
-                        localStorage.setItem('bkgimage', "url('data/images/backgrounds/"+this.type+".png')")
+                        localStorage.setItem('bkgimage', "url('/Ahmed%27s%20Minigames/data/images/backgrounds/"+this.type+".png')")
                         print(localStorage.getItem('bkgimage'))
                         document.body.style.backgroundImage = localStorage.getItem('bkgimage')
                         history.back()
@@ -63,13 +63,13 @@ class ItemDisplay extends RenderObject {
         g.image(gImageDatabase[this.type], center(32, this.width)+this.x, this.y+4)
 
         g.textSize(3)
-        let pX = 4
+        let pX = 5
         let pY = 40
         g.fill('#133a40')
-        g.text(this.text, this.x+pX, this.y+pY, this.width-pX, this.height-pY)
+        g.text(this.text, this.x+pX, this.y+pY, this.width-pX-2, this.height-pY)
 
         g.fill("#f2ff66")
-        g.text(this.text, this.x+pX+0.3, this.y+pY+0.3, this.width-pX, this.height-pY)
+        g.text(this.text, this.x+pX+0.3, this.y+pY+0.3, this.width-pX-2, this.height-pY)
 
         this.textbox.render()
     }

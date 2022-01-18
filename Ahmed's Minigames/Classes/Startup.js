@@ -5,10 +5,8 @@ class StartupButton extends RenderObject {
     }
     render () {
         g.image(gImageDatabase['helpbutton'], this.x, this.y)
-        print(this.collidepoint(pmouseX/SCALE, pmouseY/SCALE))
         if (this.collidepoint(pmouseX/SCALE, pmouseY/SCALE) && mouseIsPressed) {
             this.pressed = true
-            print("PPPP")
             return this.pressed
         }
         return this.pressed
@@ -99,7 +97,6 @@ class StartupScreen extends RenderObject {
         } else {
             return true
         }
-        //g.image(gImageDatabase['helpbutton'],center(gImageDatabase['helpbutton'].width, this.width)+this.x,this.y+93)
 
     }
 }
@@ -137,10 +134,12 @@ class EndScreen extends RenderObject {
         g.textAlign(CENTER)
         g.text(text, this.x, this.y+5, this.width, this.height)
 
-        g.textSize(4)
-        let codes = [11223, 30292, 22331]
-        text = "CODE FOR COSEMETIC SHOP: " + codes[this.selectCode]
-        g.text(text, this.x, this.y+14, this.width, this.height)
+        if (score > 150) {
+            g.textSize(4)
+            let codes = [11223, 30292, 22331]
+            text = "CODE FOR COSEMETIC SHOP: " + codes[this.selectCode]
+            g.text(text, this.x, this.y+14, this.width, this.height)
+        }
 
         if (this.index =="minigame1") {
             if (score > 150){

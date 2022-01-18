@@ -9,5 +9,16 @@ canvas {
 } */
 
 body {
+  display: flex;
+  width: 90%;
+  margin: auto;
+  font-size: x-large; 
+  justify-content: center;
+  box-shadow: 0 0 20px 2px;
   background-image: url("/Ahmed\'s\ Minigames/data/images/backgrounds/flower1display.png")
 }
+
+
+
+
+

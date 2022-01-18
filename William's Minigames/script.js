@@ -9,6 +9,7 @@ const settingsSection = document.getElementById("settingsSection")
 
 // ================== BUTTONS ================== 
 const buttons = document.getElementsByClassName("button")
+const menuBtns = document.getElementsByClassName("menuBtns")
 const aboutBtn = document.getElementById("aboutBtn")
 const lockBtn = document.getElementById("lockBtn")
 const playBtn = document.getElementById("playBtn")
@@ -16,12 +17,12 @@ const closeAbout = document.getElementById("closeAbout")
 const closeLocked = document.getElementById("closeLocked")
 const settingsBtn = document.getElementById("settingsBtn") 
 const closeSettings = document.getElementById("closeSettings") 
-var volume = document.getElementById("volumeControl")
+let volume = document.getElementById("volumeControl")
 
 // ================== AUDIO ================== 
-var buttonSound1 = document.getElementById('audio1')
-var buttonSound2 = document.getElementById('audio2')
-var wrongChoice = document.getElementById('audio3')
+let buttonSound1 = document.getElementById('audio1')
+let buttonSound2 = document.getElementById('audio2')
+let wrongChoice = document.getElementById('audio3')
 
 //https://www.epidemicsound.com/music/featured/
 /** Creating the canvas, adjusted to windows height and width */
@@ -55,6 +56,9 @@ function start(){
 
 for(var i=0, len = buttons.length; i<len; i++){ 
   buttons[i].addEventListener("click", () => playSound1());
+}
+for(var i=0, len = menuBtns.length; i<len; i++){ 
+  menuBtns[i].addEventListener("click", () => playSound1());
 }
 
 
