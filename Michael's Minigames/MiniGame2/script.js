@@ -27,8 +27,8 @@ const questions = [
     {
         question: 'Which is better for the environment?',
         answer: [
-            { text: 'Plane rides less than 3 hours', correct: true, carbon: "Carbon Amount: 156 per km", image: 'Images/3HourPlane.png'},
-            { text: 'Plane rides more than 6 hours', correct: false, carbon: "Carbon Amount: 150 per km", image: 'Images/6HourPlane.png'}
+            { text: 'Plane rides less than 3 hours', correct: true, carbon: "Carbon Amount: 150 per km", image: 'Images/3HourPlane.png'},
+            { text: 'Plane rides more than 6 hours', correct: false, carbon: "Carbon Amount: 156 per km", image: 'Images/6HourPlane.png'}
         ]
     },
     {

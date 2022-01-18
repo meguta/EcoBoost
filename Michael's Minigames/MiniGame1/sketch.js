@@ -152,7 +152,7 @@ function setup() {
     texts = new Text(font);
    
     // Created objects, set location, and set image 
-    for (let c = 0; c < 75; c++) {
+    for (let c = 0; c < 80; c++) {
         goodFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 4800) - 4800
         , recycleObjects[Math.floor(Math.random() * recycleObjects.length)]);
         goodFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 4000) - 4000
@@ -351,7 +351,7 @@ function keyPressed() {
     } else if (keyCode == ENTER && scoreNumber2 < 20 && goodFallingObjects[1].length == 0) {
         currentLevel = 2;  
         scoreNumber2 = 0;       
-        for (let c = 0; c < 75; c++) {
+        for (let c = 0; c < 80; c++) {
             goodFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 4000) - 4000
             , foodWasteObjects[Math.floor(Math.random() * foodWasteObjects.length)]);
         }
@@ -362,7 +362,7 @@ function keyPressed() {
     } else if (keyCode == ENTER && scoreNumber3 < 25 && goodFallingObjects[2].length == 0) {
         currentLevel = 3;  
         scoreNumber3 = 0;       
-        for (let c = 0; c < 75; c++) {
+        for (let c = 0; c < 80; c++) {
             goodFallingObjects[2][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 3200) - 3200
             , wasteObjects[Math.floor(Math.random() * wasteObjects.length)]);
         }
@@ -375,7 +375,7 @@ function keyPressed() {
         scoreNumber1 = 0;
         scoreNumber2 = 0;
         scoreNumber3 = 0;
-        for (let c = 0; c < 75; c++) {
+        for (let c = 0; c < 80; c++) {
             goodFallingObjects[0][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 4800) - 4800
             , recycleObjects[Math.floor(Math.random() * recycleObjects.length)]);
             goodFallingObjects[1][c] = new Objects(Math.floor(Math.random() * width - (displayWidth * 0.075)) + displayWidth * 0.125, Math.floor(Math.random() * 4000) - 4000

@@ -135,8 +135,10 @@ a{
 /* ========================== BODY =====================*/  
 
 body{ 
-    background-image: url("Assets/Jungle.png");
+    
+    background-image: url("Assets/Jungle.png"); 
     background-color: #6abe30;
+    
 /* JUST TO STOP USER SELECTION/ HIGHLIGHTING */
     -webkit-user-select: none;
     -moz-user-select: none;
