@@ -8,6 +8,13 @@ canvas {
   display: block;
 } */
 
-canvas {
-/* filter: drop-shadow(1rem 1rem 1rem #38d88e) */
+body {
+  display: grid;
+    font-size: x-large;
+    margin: auto;
+    padding-top: 30px; padding-bottom: 10px;
+    padding-right: 30px; padding-left: 27vw;
+    box-shadow: 0 0 20px 2px;
+  background-image: url("/Ahmed\'s\ Minigames/data/images/backgrounds/flower1display.png")
 }
+
