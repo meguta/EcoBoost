@@ -50,7 +50,7 @@ a{
  text-align: center; 
 }
 
-.button{ /* Background to be changed  */
+.button{ 
 
     background-color: rgb(214, 233, 226);
     margin: auto;
@@ -135,7 +135,6 @@ a{
 /* ========================== BODY =====================*/  
 
 body{ 
-    
     background-image: url("Assets/Jungle.png"); 
     background-color: #6abe30;
     
