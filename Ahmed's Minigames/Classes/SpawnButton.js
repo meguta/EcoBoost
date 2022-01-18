@@ -53,26 +53,22 @@ class SpawnButton extends RenderObject {
 				gMouseBuffer = !gMouseBuffer
 				let e = new Entity(random(0,128-16), random(0,128-16), 16, 16, this.type, 4)
 				e.snapToGrid()
-				//print("yes")
 				let clear = false
 
-				while (!clear){
-					clear = true
-					for (let i=0;i<obj.length;i++){
-						print("yes")
-						if (e.colliderect(obj[i])) {
-							clear = false
-							print("NO")
-							e.x = random(0, 128-16)
-							e.y = random(0, 128-16)
-							e.snapToGrid()
+				if (obj.length < 64) {
+					while (!clear){
+						clear = true
+						for (let i=0;i<obj.length;i++){
+							if (e.colliderect(obj[i])) {
+								clear = false
+								e.x = random(0, 128-16)
+								e.y = random(0, 128-16)
+								e.snapToGrid()
+							}
 						}
 					}
+					obj.push(e)
 				}
-				
-				obj.push(e)
-				
-				print("added")
 			}
 		} else if (!mouseIsPressed){
 			this.animObj.changeAction("buttonIdle", false)	
