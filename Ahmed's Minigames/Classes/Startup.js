@@ -5,10 +5,8 @@ class StartupButton extends RenderObject {
     }
     render () {
         g.image(gImageDatabase['helpbutton'], this.x, this.y)
-        print(this.collidepoint(pmouseX/SCALE, pmouseY/SCALE))
         if (this.collidepoint(pmouseX/SCALE, pmouseY/SCALE) && mouseIsPressed) {
             this.pressed = true
-            print("PPPP")
             return this.pressed
         }
         return this.pressed
@@ -99,7 +97,6 @@ class StartupScreen extends RenderObject {
         } else {
             return true
         }
-        //g.image(gImageDatabase['helpbutton'],center(gImageDatabase['helpbutton'].width, this.width)+this.x,this.y+93)
 
     }
 }

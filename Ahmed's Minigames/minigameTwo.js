@@ -18,11 +18,11 @@ class HealthBar extends RenderObject {
         // frame
         g.noStroke()
         g.fill(0, 50, 0)
-        g.rect (this.x, this.y, frameWidth, frameHeight, 5)
+        g.rect (this.x, this.y, frameWidth, frameHeight, 0)
 
         // bar
         g.fill(255, 0, 50)
-        g.rect(center(this.width, frameWidth)+this.x, center(this.height, frameHeight)+this.y, this.displayHealth*.4, this.height, 5)
+        g.rect(center(this.width, frameWidth)+this.x, center(this.height, frameHeight)+this.y, this.displayHealth*.4, this.height, 0)
 
     }
 	nonrender() {
@@ -31,11 +31,11 @@ class HealthBar extends RenderObject {
         let frameHeight = this.height + 2
 
         g.fill(0, 50, 0, this.fade)
-        g.rect (this.x, this.y, frameWidth, frameHeight, 5)
+        g.rect (this.x, this.y, frameWidth, frameHeight, 2)
 
         // bar
         g.fill(255, 0, 50, this.fade)
-        g.rect(center(this.width, frameWidth)+this.x, center(this.height, frameHeight)+this.y, this.displayHealth*.4, this.height, 5)
+        g.rect(center(this.width, frameWidth)+this.x, center(this.height, frameHeight)+this.y, this.displayHealth*.4, this.height, 2)
 
 	}
 	
@@ -158,7 +158,6 @@ class Enemy extends RenderObject {
 		}
 
 		if (mouseIsPressed /*&& (draggable || this.drag)*/) {
-			print("YES")
 			if (this.collidepoint(mouseX/this.scale, mouseY/this.scale) || this.drag) {
 				if (this.drag == false) {
 					this.startDrag = [mouseX/this.scale, mouseY/this.scale, 0]
@@ -177,7 +176,6 @@ class Enemy extends RenderObject {
 				this.endDrag[0] = mouseX/this.scale
 				this.endDrag[1] = mouseY/this.scale
 
-				//print( this.endDrag[0]-this.startDrag[0])
 
 				this.dragVel = [0, 0]
 				this.dragVel[0] = ((2*(this.endDrag[0]-this.startDrag[0]) )/ (this.endDrag[2]))/this.scale
@@ -185,7 +183,6 @@ class Enemy extends RenderObject {
 				this.drag = false
 
 			} else if (this.endDrag != null){
-				print(this.dragVel[0], this.dragVel[1])
 				if (this.endDrag[2] >= 0) {
 					this.move(this.dragVel)
 					this.endDrag[2]-=0.5
@@ -213,30 +210,14 @@ class Enemy extends RenderObject {
 
 
 		if (rect1==this) {
-			print("check 1")
 			return false
 		}
 
 		if (this.left < rect1.right && rect1.left < this.right) {
 			if (this.top < rect1.bottom && rect1.top < this.bottom) {
-				print("collide 1")
 				return true
 			}
 		}
-
-
-		// if (this.collidepoint(rect1.left, rect1.top))
-		// 	return true
-		// if (this.collidepoint(rect1.right, rect1.top))
-		// 	return true
-		// if (this.collidepoint(rect1.left, rect1.bottom))
-		// 	return true
-		// if (this.collidepoint(rect1.right, rect1.bottom)){
-		// 	print("POO")
-		// 	return true
-
-		// }
-
 		return false
 	}
 }
@@ -280,13 +261,11 @@ class Forest extends RenderObject {
 
 
 		if (rect1==this) {
-			print("check 1")
 			return false
 		}
 
 		if (this.left < rect1.right && rect1.left < this.right) {
 			if (this.top < rect1.bottom && rect1.top < this.bottom) {
-				print("collide 1")
 				return true
 			}
 		}
@@ -324,7 +303,6 @@ class GameController {
 	events () {
 		if (this.waveTime >= 0) {
 			this.waveTime -= 1
-			print ("!!! " + this.waveTime % (this.getTotalEnemies()*60) );
 			if (this.waveTime % (this.waveLength/this.getTotalEnemies()) == 1) {
 				if (this.waveEnemies < this.waveDiff*this.currentWave) {
 					if (randInt(0, 2) == 1) {
@@ -407,7 +385,6 @@ let timer = new Timer(center(128, gWidth), 0, 128, 32, "minigame2", 4)
 SCALE = 4
 function draw() {
 	p5.disableFriendlyErrors = true
-	//print("POOOPOO")
 	try {
     	g.noSmooth()
 	} catch (e) {}

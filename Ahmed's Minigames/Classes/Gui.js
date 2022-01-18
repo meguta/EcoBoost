@@ -6,7 +6,7 @@ class Gui extends RenderObject{
 		this.size = btns.length
 		this.padding = 30
 	}
-	render() {
+	render(upd) {
 		g.fill(0, 140, 0)
 		g.image(gImageDatabase['mainframe'], 0, 128)
 		for (let i=0;i<this.size;i++) {
@@ -15,11 +15,15 @@ class Gui extends RenderObject{
 			
 			this.btns[i].x = xpos
 			this.btns[i].y = ypos
-
-			this.btns[i].update()
+			
+			if (upd) {
+				this.btns[i].update()
+			}
 
 			this.btns[i].render()
-			this.btns[i].onClick(rects)
+			if (upd) {
+				this.btns[i].onClick(rects)
+			}
 		}
 	}
 }
