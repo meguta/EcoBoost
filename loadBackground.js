@@ -1,3 +1,3 @@
 if (localStorage.getItem("bkgimage") != null) {
-    document.body.style.backgroundImage = "url("+localStorage.getItem('bkgimage')+")"
+    document.body.style.backgroundImage = localStorage.getItem('bkgimage')
 }

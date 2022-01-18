@@ -24,7 +24,7 @@ class TextBox extends RenderObject {
                     }
                 } else if (key=="Enter") {
                     if (this.text == this.code) {
-                        localStorage.setItem('bkgimage', "url('data/images/backgrounds/"+this.type+".png')")
+                        localStorage.setItem('bkgimage', "url('/Ahmed%27s%20Minigames/data/images/backgrounds/"+this.type+".png')")
                         print(localStorage.getItem('bkgimage'))
                         document.body.style.backgroundImage = localStorage.getItem('bkgimage')
                         history.back()
