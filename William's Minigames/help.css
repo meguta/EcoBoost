@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+/* _--------------------------------_*/
+header{ 
+    padding: 5px;
+    margin: -10px;
+   
+    height: 200px;
+    width: auto;
+    
+}
+/* _---------------- Top Logo, Main Logo at the top of the page ----------------_*/
+#logo{ 
+    position: relative; left: 40px; top: 20px;
+
+}
+
+#logo:hover{    /* Might not be necessary */
+    opacity: 80%;
+}
+
+
+/* _--------------  Background image for website --> Folder /assets/------------------_*/
+body{ 
+    background-image: url('Assets/Jungle.png'); 
+
+}
+
+#main_head{ 
+    margin: auto;
+    text-align: center;
+    padding: 3vh;
+    font-size: 150px;
+    color: yellowgreen;
+    }
+/* _--------------- Navigation bar item -----------------_*/
+
+#nav_bar{ 
+    position: relative; bottom: 130px; left: 500px; 
+    width: fit-content;
+}
+
+.nav_item{ 
+    padding: 15px;
+    margin: 15px;
+    border-radius: 30px;
+    color: lightgrey;
+    display: inline;
+    background-color: #1e2b58;
+    width: fit-content;
+    
+}
+
+.nav_link{ 
+    text-decoration: none;
+    color: black;
+    text-align: center;
+    
+}
+
+.nav_item:hover{ 
+    opacity: 80%;
+    cursor: pointer;
+    
+}
+/* _----------------    UNDER NAV BAR ----------------_*/
+
+
+.element-section1{ 
+    height: 10%;
+    width: 100%;
+    
+}
+
+#under-nav-bar{ 
+    padding: 15px;
+    margin: auto;
+    position: relative;top: 30px; left: 120px;
+    border-radius: 30px;
+    color: lightgrey;
+    display: inline;
+    background-color: #1e2b58;
+    width: fit-content;
+    font-size: 200%;
+
+}
+
+#under-nav-bar-link{ 
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+    /*text-shadow:
+      0 0 7px #fff,
+      0 0 10px #fff,
+      0 0 21px #fff,
+      0 0 42px rgb(71,77,150),
+      0 0 82px rgb(71,77,150),
+      0 0 92px rgb(71,77,150),
+      0 0 102px rgb(71,77,150),
+      0 0 121px rgb(71,77,150);
+    */
+} 
+
+#under-nav-bar:hover{ 
+    opacity: 80%; /* NEEDS WORK */ 
+}
+
+
+    
+
+
+
+/* _----------------    ELEMENT SECTION 2 ----------------_*/
+section{ 
+    height: 40%;
+    width: 100%;
+    
+}
+
+.elementDiv{ 
+    background-color: #D6E2E9;
+    position: relative;left: 12%; top: 20%;
+    width: 75%;
+    height: fit-content;
+    font-size: 4vh;
+    padding: 25px;
+    margin-bottom: 5%;
+    border-radius: 15px;
+    border-color: black;
+    border-style: solid;
+}
+
+
+body{ 
+    height: 1000px;
+   
+}
+
+
+html{ 
+ 
+ font-family: 'VT323', monospace;/* Global Font */       
+ font-weight: bold;
+
+}
+
+/*  Debugging Style 
+*{ outline: solid 0.25rem hsla(210, 100%, 100%, 0.5); } 
+*/
+*{ outline: 2px solid rgba(245, 245, 245, 0.363) };
+
