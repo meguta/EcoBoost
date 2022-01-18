@@ -8,6 +8,6 @@ canvas {
   display: block;
 } */
 
-body {
-  background-image: url("/Ahmed\'s\ Minigames/data/images/backgrounds/flower1display.png")
+canvas {
+/* filter: drop-shadow(1rem 1rem 1rem #38d88e) */
 }

@@ -45,13 +45,14 @@ function setup() {
 function draw() {
 	g.background('#38d88e')
 	g.noSmooth()
-	if (help.render()) {
-		timer.render()
-	}
 	for (let i=0;i<rects.length;i++){
 		rects[i].render([0,0], checkDraggable(rects))
 	}
-	gui.render()
+	let helpDone = help.render()
+	if (helpDone) {
+		timer.render()
+	}
+	gui.render(helpDone)
 	scale(SCALE)
 	image(g, 0, 0)
 }
