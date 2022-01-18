@@ -1,7 +1,7 @@
 function Objects(x, y, object) {
     this.x = x;
     this.y = y;
-    this.ydir = 2.75;
+    this.ydir = 2.5;
 
     this.move = function() {
         this.y += this.ydir;
