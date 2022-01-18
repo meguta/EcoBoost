@@ -9,7 +9,7 @@ header{
     
 }
 /* _---------------- Top Logo, Main Logo at the top of the page ----------------_*/
-#logo{ 
+#close{ 
     position: relative; left: 40px; top: 20px;
 
 }
@@ -146,5 +146,5 @@ html{
 /*  Debugging Style 
 *{ outline: solid 0.25rem hsla(210, 100%, 100%, 0.5); } 
 */
-*{ outline: 2px solid rgba(245, 245, 245, 0.363) };
+
 
