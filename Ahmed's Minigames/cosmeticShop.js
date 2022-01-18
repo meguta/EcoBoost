@@ -95,9 +95,9 @@ function setup() {
 	font = loadFont('data/fonts/COMMP___.TTF')
     g.textFont(font)
 }
-let text1 = "This is one of the roses you can plant in the [BIODIVERSITY] minigame. Roses are apart of the Rosaceae family, and has over three hundred different kinds of species."
-let text2 = "This is one of the tulips you can plant in the [BIODIVERSITY] minigame. Tulips are a genus of spring-blooming flowers. Their flowers are large, showy, and brightly colored."
-let text3 = "This is one of the pine trees you can plant in the [BIODIVERSITY] minigame. Pine trees are apart of the family Pinaceae, while Pinus is the sole genus in the subfamily Pinoideae."
+let text1 = "The rose cosmetic changes the background to roses. Roses are apart of the Rosaceae family, and has over three hundred different kinds of species."
+let text2 = "The tulip cosmetic changes the background to tulips. Tulips are a genus of spring-blooming flowers. Their flowers are large, showy, and brightly colored."
+let text3 = "The tree cosmetic changes the background to trees. Pine trees are apart of the family Pinaceae, while Pinus is the sole genus in the subfamily Pinoideae."
 
 let itemDisplay1 = new ItemDisplay(10, 25, 75, 75, "flower1display", text1, "11223", SCALE)
 let itemDisplay2 = new ItemDisplay(90, 25, 75, 75, "flower2display", text2, "30292", SCALE)
